@@ -4,6 +4,9 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -15,16 +18,26 @@ import com.google.firebase.auth.FirebaseUser;
 public class SignUp extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private String email, password;
+    private Button mSignUp;
+    private EditText mEmailInput, mPasswordInput
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
         mAuth = FirebaseAuth.getInstance();
+        mSignUp = (Button)findViewById(R.id.sign_up_button);
         FirebaseUser currentUser = mAuth.getCurrentUser();
         updateUI(currentUser);
 
-
+        mSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                email = mEmailInput.getText().toString();
+                password = mPasswordInput.getText().toString();
+                //mAuth.createUserWithEmailAndPassword(email, password);
+            }
+        });
         /*mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
