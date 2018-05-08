@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
         mCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent startIntent = new Intent(MainActivity.this, SignUp.class);
-                startActivity(startIntent);
+                Intent signUpIntent = new Intent(MainActivity.this, SignUp.class);
+                startActivity(signUpIntent);
             }
         });
 

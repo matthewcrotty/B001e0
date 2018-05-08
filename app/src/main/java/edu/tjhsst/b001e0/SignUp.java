@@ -25,7 +25,7 @@ public class SignUp extends AppCompatActivity {
         updateUI(currentUser);
 
 
-        mAuth.createUserWithEmailAndPassword(email, password)
+        /*mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -44,7 +44,7 @@ public class SignUp extends AppCompatActivity {
 
                         // ...
                     }
-                });
+                });*/
     }
 
     private void updateUI(FirebaseUser currentUser) {
