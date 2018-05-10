@@ -1,5 +1,6 @@
 package edu.tjhsst.b001e0;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -37,9 +38,13 @@ public class SignUp extends AppCompatActivity {
             public void onClick(View view) {
                 email = mEmailInput.getText().toString();
                 password = mPasswordInput.getText().toString();
-                //mAuth.createUserWithEmailAndPassword(email, password);
+                createAccount(email, password);
             }
         });
+
+    }
+
+    private void createAccount(String email, String password){
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -70,5 +75,9 @@ public class SignUp extends AppCompatActivity {
     }
     private void updateUI(FirebaseUser currentUser) {
         //continue with current User
+        Intent gamefinder = new Intent(SignUp.this, GameFinder.class);
+        gamefinder.putExtra("User", currentUser.getEmail());
+        startActivity(gamefinder);
+
     }
 }

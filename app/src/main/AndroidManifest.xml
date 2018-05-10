@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".GameSetUp" />
-        <activity android:name=".SignUp"></activity>
+        <activity android:name=".SignUp" />
+        <activity android:name=".GameFinder"></activity>
     </application>
 
 </manifest>
