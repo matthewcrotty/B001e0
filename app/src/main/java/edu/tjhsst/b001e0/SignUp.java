@@ -75,7 +75,7 @@ public class SignUp extends AppCompatActivity {
     }
     private void updateUI(FirebaseUser currentUser) {
         //continue with current User
-        Intent gamefinder = new Intent(SignUp.this, GameSetUp.class);
+        Intent gamefinder = new Intent(SignUp.this, Login.class);
         //gamefinder.putExtra("User", currentUser.getEmail());
         startActivity(gamefinder);
 
