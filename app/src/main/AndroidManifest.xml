@@ -18,7 +18,7 @@
         </activity>
         <activity android:name=".GameSetUp" />
         <activity android:name=".SignUp" />
-        <activity android:name=".GameFinder"></activity>
+        <activity android:name=".Lobby"></activity>
     </application>
 
 </manifest>
