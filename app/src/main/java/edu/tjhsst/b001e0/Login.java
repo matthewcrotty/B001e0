@@ -37,8 +37,8 @@ public class Login extends AppCompatActivity {
         mSetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                email = mNameText.getText().toString();
-                password = mPasswordText.getText().toString();
+                email = mNameText.getText().toString().trim();
+                password = mPasswordText.getText().toString().trim();
                 if(email != "" && password != ""){
                     signIn(email, password);
                 }
@@ -76,7 +76,7 @@ public class Login extends AppCompatActivity {
 
     private void updateUI(FirebaseUser currentUser) {
         Intent goToLobby = new Intent(Login.this, Lobby.class);
-        goToLobby.putExtra("User", currentUser.getEmail());
+        goToLobby.putExtra("User", ""+currentUser.getEmail());
         startActivity(goToLobby);
     }
 }
