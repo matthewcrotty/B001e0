@@ -18,7 +18,10 @@
         </activity>
         <activity android:name=".SignUp" />
         <activity android:name=".Lobby" />
-        <activity android:name=".Login"></activity>
+        <activity android:name=".Login" />
+        <activity android:name=".Settings" />
+        <activity android:name=".GameFinder" />
+        <activity android:name=".Profile"/>
     </application>
 
 </manifest>
