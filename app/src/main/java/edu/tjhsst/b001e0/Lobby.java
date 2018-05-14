@@ -30,6 +30,7 @@ public class Lobby extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent settingsIntent = new Intent(Lobby.this, Settings.class);
+                settingsIntent.putExtra("User", ""+username);
                 startActivity(settingsIntent);
             }
         });
@@ -38,6 +39,7 @@ public class Lobby extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent playIntent = new Intent(Lobby.this, GameFinder.class);
+                playIntent.putExtra("User", ""+username);
                 startActivity(playIntent);
             }
         });
@@ -46,6 +48,7 @@ public class Lobby extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent proflieIntent = new Intent(Lobby.this, Profile.class);
+                proflieIntent.putExtra("User", ""+username);
                 startActivity(proflieIntent);
             }
         });

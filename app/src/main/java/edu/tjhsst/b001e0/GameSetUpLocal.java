@@ -4,14 +4,15 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Settings extends AppCompatActivity {
+public class GameSetUpLocal extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        setContentView(R.layout.activity_game_set_up_local);
 
         Intent mIntent = getIntent();
         final String username = mIntent.getStringExtra("User");
+
     }
 }

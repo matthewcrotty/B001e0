@@ -21,7 +21,8 @@
         <activity android:name=".Login" />
         <activity android:name=".Settings" />
         <activity android:name=".GameFinder" />
-        <activity android:name=".Profile"/>
+        <activity android:name=".Profile" />
+        <activity android:name=".GameSetUpLocal"></activity>
     </application>
 
 </manifest>
