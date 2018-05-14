@@ -17,4 +17,6 @@
     <string name="local_game">Play Local</string>
     <string name="online_game">Play Online</string>
     <string name="find_game">Choose Game Type</string>
+    <string name="player1">Player 1 Name:</string>
+    <string name="player2">Player 2 Name:</string>
 </resources>

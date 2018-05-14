@@ -22,7 +22,8 @@
         <activity android:name=".Settings" />
         <activity android:name=".GameFinder" />
         <activity android:name=".Profile" />
-        <activity android:name=".GameSetUpLocal"></activity>
+        <activity android:name=".GameSetUpLocal" />
+        <activity android:name=".LocalGame"></activity>
     </application>
 
 </manifest>
