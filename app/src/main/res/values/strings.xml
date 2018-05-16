@@ -19,4 +19,8 @@
     <string name="find_game">Choose Game Type</string>
     <string name="player1">Player 1 Name:</string>
     <string name="player2">Player 2 Name:</string>
+    <string name="change_password">Change Password</string>
+    <string name="instructions">How to Play</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
 </resources>
