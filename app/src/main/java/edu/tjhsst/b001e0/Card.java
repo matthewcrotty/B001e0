@@ -11,7 +11,6 @@ public class Card {
     private boolean inPlay;
     private ImageIcon image;
     private ImageIcon[] imageArray;
-    private int[] outputTable [[0],[0],[]];
     private int output;
 
     public Card(int card, int firstInput, int secondInput) {
@@ -20,11 +19,15 @@ public class Card {
         input2 = secondInput;
         inPlay = true;
 
-
+        if(card == 3 || card == 5 || card ==7) {
+            output = 1;
+        }
+        else {
+            output = 0;
+        }
         for(int i = 0; i < 8; i++) {
             if(card == i) {
                 image = imageArray[i];
-                output = outputTable[i][firstInput+secondInput];
             }
         }
     }
