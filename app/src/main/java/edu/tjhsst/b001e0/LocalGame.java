@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 public class LocalGame extends AppCompatActivity {
 
+    private int turn = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -14,6 +15,7 @@ public class LocalGame extends AppCompatActivity {
         Intent mIntent = getIntent();
         final String player1 = mIntent.getStringExtra("p1");
         final String player2 = mIntent.getStringExtra("p2");
+
 
 
     }

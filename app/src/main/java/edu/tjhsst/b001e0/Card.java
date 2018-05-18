@@ -1,5 +1,7 @@
 package edu.tjhsst.b001e0;
 
+import android.media.Image;
+
 /**
  * Created by Dylan on 5/18/2018.
  */
@@ -9,8 +11,8 @@ public class Card {
     private int input1;
     private int input2;
     private boolean inPlay;
-    private ImageIcon image;
-    private ImageIcon[] imageArray;
+    private Image cardDisplay;
+    private Image[] imageArray;
     private int output;
 
     public Card(int card, int firstInput, int secondInput) {
@@ -27,7 +29,7 @@ public class Card {
         }
         for(int i = 0; i < 8; i++) {
             if(card == i) {
-                image = imageArray[i];
+                cardDisplay = imageArray[i];
             }
         }
     }
@@ -39,7 +41,7 @@ public class Card {
 
         for(int i = 0; i < 8; i++) {
             if(card == i) {
-                image = imageArray[i];
+                cardDisplay = imageArray[i];
             }
         }
     }
