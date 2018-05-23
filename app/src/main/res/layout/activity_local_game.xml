@@ -23,7 +23,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/and0"/>
+            app:srcCompat="@drawable/back"/>
         </LinearLayout>
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -37,13 +37,13 @@
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/and0" />
+                app:srcCompat="@drawable/back" />
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="wrap_content"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@android:drawable/picture_frame" />
+                app:srcCompat="@drawable/back"/>
         </LinearLayout>
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="wrap_content"
@@ -56,19 +56,19 @@
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/and0"/>
+                app:srcCompat="@drawable/back"/>
             <ImageView
                 android:id="@+id/imageView5"
-                android:layout_width="wrap_content"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@android:drawable/picture_frame" />
+                app:srcCompat="@drawable/back" />
             <ImageView
                 android:id="@+id/imageView6"
-                android:layout_width="wrap_content"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@android:drawable/picture_frame" />
+                app:srcCompat="@drawable/back" />
         </LinearLayout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
@@ -81,25 +81,25 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/and0"/>
+            app:srcCompat="@drawable/back"/>
         <ImageView
             android:id="@+id/imageView8"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@android:drawable/picture_frame" />
+            app:srcCompat="@drawable/back" />
         <ImageView
             android:id="@+id/imageView9"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@android:drawable/picture_frame" />
+            app:srcCompat="@drawable/back" />
         <ImageView
             android:id="@+id/imageView10"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@android:drawable/picture_frame" />
+            app:srcCompat="@drawable/back"/>
     </LinearLayout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
@@ -112,31 +112,31 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/and0" />
+            app:srcCompat="@drawable/back" />
         <ImageView
             android:id="@+id/imageView12"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@android:drawable/picture_frame" />
+            app:srcCompat="@drawable/back" />
         <ImageView
             android:id="@+id/imageView13"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@android:drawable/picture_frame" />
+            app:srcCompat="@drawable/back" />
         <ImageView
             android:id="@+id/imageView14"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@android:drawable/picture_frame" />
+            app:srcCompat="@drawable/back" />
         <ImageView
             android:id="@+id/imageView15"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@android:drawable/picture_frame" />
+            app:srcCompat="@drawable/back"/>
     </LinearLayout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
@@ -193,31 +193,31 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/and0"  />
+            app:srcCompat="@drawable/back"  />
         <ImageView
             android:id="@+id/imageView23"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@android:drawable/picture_frame" />
+            app:srcCompat="@drawable/back" />
         <ImageView
             android:id="@+id/imageView24"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@android:drawable/picture_frame" />
+            app:srcCompat="@drawable/back" />
         <ImageView
             android:id="@+id/imageView25"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@android:drawable/picture_frame" />
+            app:srcCompat="@drawable/back" />
         <ImageView
             android:id="@+id/imageView26"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@android:drawable/picture_frame" />
+            app:srcCompat="@drawable/back" />
     </LinearLayout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
@@ -230,25 +230,25 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/and0"  />
+            app:srcCompat="@drawable/back"  />
         <ImageView
             android:id="@+id/imageView28"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@android:drawable/picture_frame" />
+            app:srcCompat="@drawable/back" />
         <ImageView
             android:id="@+id/imageView29"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@android:drawable/picture_frame" />
+            app:srcCompat="@drawable/back"/>
         <ImageView
             android:id="@+id/imageView30"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@android:drawable/picture_frame" />
+            app:srcCompat="@drawable/back" />
 
     </LinearLayout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -263,19 +263,19 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/and0" />
+            app:srcCompat="@drawable/back" />
         <ImageView
             android:id="@+id/imageView32"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@android:drawable/picture_frame" />
+            app:srcCompat="@drawable/back" />
         <ImageView
             android:id="@+id/imageView33"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@android:drawable/picture_frame" />
+            app:srcCompat="@drawable/back"/>
     </LinearLayout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
@@ -288,13 +288,13 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/and0" />
+            app:srcCompat="@drawable/back" />
         <ImageView
             android:id="@+id/imageView35"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@android:drawable/picture_frame" />
+            app:srcCompat="@drawable/back"/>
     </LinearLayout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
@@ -307,7 +307,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/and0" />
+            app:srcCompat="@drawable/back" />
     </LinearLayout>
     </LinearLayout>
 </LinearLayout>
