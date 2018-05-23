@@ -133,4 +133,12 @@ public class Card {
     public void setOutput(int output) {
         this.output = output;
     }
+
+    public String getPictureName() {
+        return pictureName;
+    }
+
+    public void setPictureName(String pictureName) {
+        this.pictureName = pictureName;
+    }
 }
