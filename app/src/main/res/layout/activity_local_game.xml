@@ -7,17 +7,17 @@
     android:gravity="center"
     android:orientation="vertical">
     <TextView
-        android:id="@+id/textimage"
+        android:id="@+id/turn_message"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="none"/>
+        android:layout_height="wrap_content" />
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="0.5"
         android:gravity="center"
         android:orientation="vertical">
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/row1"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="0.5"
@@ -36,7 +36,8 @@
             android:layout_height="0dp"
             android:layout_weight="0.5"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:id="@+id/row2">
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="50dp"
@@ -55,7 +56,8 @@
             android:layout_height="0dp"
             android:layout_weight="0.5"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:id="@+id/row3">
             <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="50dp"
@@ -80,13 +82,15 @@
         android:layout_height="0dp"
         android:layout_weight="0.5"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:id="@+id/row4">
         <ImageView
             android:id="@+id/imageView7"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/back"/>
+            app:srcCompat="@drawable/back"
+            />
         <ImageView
             android:id="@+id/imageView8"
             android:layout_width="50dp"
@@ -111,7 +115,8 @@
         android:layout_height="0dp"
         android:layout_weight="0.5"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:id="@+id/row5">
         <ImageView
             android:id="@+id/imageView11"
             android:layout_width="50dp"
@@ -148,7 +153,8 @@
         android:layout_height="0dp"
         android:layout_weight="0.5"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:id="@+id/row6">
         <ImageView
             android:id="@+id/imageView16"
             android:layout_width="50dp"
@@ -192,7 +198,8 @@
         android:layout_height="0dp"
         android:layout_weight="0.5"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:id="@+id/row7">
         <ImageView
             android:id="@+id/imageView22"
             android:layout_width="50dp"
@@ -229,7 +236,8 @@
         android:layout_height="0dp"
         android:layout_weight="0.5"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:id="@+id/row8">
         <ImageView
             android:id="@+id/imageView27"
             android:layout_width="50dp"
@@ -261,7 +269,8 @@
         android:layout_height="0dp"
         android:layout_weight="0.5"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:id="@+id/row9">
 
         <ImageView
             android:id="@+id/imageView31"
@@ -287,7 +296,8 @@
         android:layout_height="0dp"
         android:layout_weight="0.5"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:id="@+id/row10">
         <ImageView
             android:id="@+id/imageView34"
             android:layout_width="50dp"
@@ -306,7 +316,8 @@
         android:layout_height="0dp"
         android:layout_weight="0.5"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:id="@+id/row11">
         <ImageView
             android:id="@+id/imageView36"
             android:layout_width="50dp"
@@ -314,5 +325,46 @@
             android:layout_weight="1"
             app:srcCompat="@drawable/back" />
     </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:id="@+id/start_turn_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="START TURN"/>
+    <LinearLayout
+        android:id="@+id/hand_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+        <ImageView
+            android:id="@+id/hand1"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/back"/>
+        <ImageView
+            android:id="@+id/hand2"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/back"/>
+        <ImageView
+            android:id="@+id/hand3"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/back"/>
+        <ImageView
+            android:id="@+id/hand4"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/back"/>
+        <ImageView
+            android:id="@+id/hand5"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/back"/>
     </LinearLayout>
 </LinearLayout>
