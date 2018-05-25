@@ -6,12 +6,17 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class LocalGame extends AppCompatActivity {
 
     private int turn = 0;
     private ImageView[] mDefaults, mTopHalf, mBottomHalf;
+    private TextView mImageID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +25,8 @@ public class LocalGame extends AppCompatActivity {
         Intent mIntent = getIntent();
         final String player1 = mIntent.getStringExtra("p1");
         final String player2 = mIntent.getStringExtra("p2");
+
+        mImageID = findViewById(R.id.textimage);
 
         mDefaults = new ImageView[]{findViewById(R.id.imageView16),
                 findViewById(R.id.imageView17),
@@ -50,7 +57,18 @@ public class LocalGame extends AppCompatActivity {
         }
         for(int x = 0; x<mTopHalf.length; x++){
             rotate(mTopHalf, x, R.drawable.back);
+            final ImageView temp = mTopHalf[x];
+            mTopHalf[x].setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View view) {
+                    temp.setImageResource(R.drawable.and0);
+                }
+            });
+
         }
+
+
 
     }
     public void rotate(ImageView[] arr, int x, int pic){

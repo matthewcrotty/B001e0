@@ -1,12 +1,13 @@
 package edu.tjhsst.b001e0;
 
 import android.media.Image;
+import android.widget.ImageView;
 
 /**
  * Created by Dylan on 5/18/2018.
  */
 
-public class Card {
+public class Card{
     private int type;
     private int input1;
     private int input2;
