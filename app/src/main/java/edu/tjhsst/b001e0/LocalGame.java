@@ -24,6 +24,7 @@ public class LocalGame extends AppCompatActivity {
     private Button mStartTurn, mEndTurn, mShowBoard, mHideBoard;
     private String currentPlayer;
     private TextView mTurnMessage;
+    private String[] mCards;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +41,7 @@ public class LocalGame extends AppCompatActivity {
         mHideBoard = findViewById(R.id.hide_board);
         mTurnMessage = findViewById(R.id.turn_message);
         //mTurnMessage.setText(currentPlayer+"'s Turn");
+        mCards = new String[]{"and0", "and1", "or0", "or1", "xor0", "xor1", "not"};
 
         mDefaults = new ImageView[]{findViewById(R.id.imageView16),
                 findViewById(R.id.imageView17),
@@ -261,5 +263,12 @@ public class LocalGame extends AppCompatActivity {
         Bitmap rotated = Bitmap.createBitmap(myImg, 0, 0, myImg.getWidth(), myImg.getHeight(),
                 matrix, true);
         arr[x].setImageBitmap(rotated);
+    }
+    public boolean validateMove(){
+        return true;
+    }
+
+    public void setImage(){
+
     }
 }
