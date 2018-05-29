@@ -21,7 +21,7 @@ public class LocalGame extends AppCompatActivity {
     private ImageView[] mDefaults, mTopHalf, mBottomHalf, mHand;
     private LinearLayout[] mDefaultsL, mTopHalfL, mBottomHalfL;
     private LinearLayout mHandL;
-    private Button mStartTurn;
+    private Button mStartTurn, mEndTurn, mShowBoard, mHideBoard;
     private String currentPlayer;
     private TextView mTurnMessage;
     @Override
@@ -35,8 +35,11 @@ public class LocalGame extends AppCompatActivity {
         currentPlayer = player1;
 
         mStartTurn = findViewById(R.id.start_turn_button);
+        mEndTurn = findViewById(R.id.end_turn_button);
+        mShowBoard = findViewById(R.id.show_board);
+        mHideBoard = findViewById(R.id.hide_board);
         mTurnMessage = findViewById(R.id.turn_message);
-        mTurnMessage.setText(currentPlayer+"'s Turn");
+        //mTurnMessage.setText(currentPlayer+"'s Turn");
 
         mDefaults = new ImageView[]{findViewById(R.id.imageView16),
                 findViewById(R.id.imageView17),
@@ -139,18 +142,106 @@ public class LocalGame extends AppCompatActivity {
         mStartTurn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(currentPlayer == player1){
+                turn+=1;
+                if(turn%2 == 1) {
+                    mTurnMessage.setText(player2 + "'s Turn");
                     for(int x = 0; x<mTopHalf.length; x++){
                         mTopHalf[x].setVisibility(View.GONE);
+                        mBottomHalf[x].setVisibility(View.VISIBLE);
                     }
                     for(int x = 0; x<mTopHalfL.length; x++){
                         mTopHalfL[x].setVisibility(View.GONE);
+                        mBottomHalfL[x].setVisibility(View.VISIBLE);
                     }
                     for(int x = 0; x<mHand.length; x++){
                         mHand[x].setVisibility(View.VISIBLE);
                     }
                     mHandL.setVisibility(View.VISIBLE);
                 }
+                else{
+                    mTurnMessage.setText(player1 +"'s Turn");
+                    for(int x = 0; x<mTopHalf.length; x++){
+                        mTopHalf[x].setVisibility(View.VISIBLE);
+                        mBottomHalf[x].setVisibility(View.GONE);
+                    }
+                    for(int x = 0; x<mTopHalfL.length; x++){
+                        mTopHalfL[x].setVisibility(View.VISIBLE);
+                        mBottomHalfL[x].setVisibility(View.GONE);
+                    }
+                    for(int x = 0; x<mHand.length; x++){
+                        mHand[x].setVisibility(View.VISIBLE);
+                    }
+                    mHandL.setVisibility(View.VISIBLE);
+                }
+                mStartTurn.setVisibility(View.GONE);
+                mEndTurn.setVisibility(View.VISIBLE);
+                mShowBoard.setVisibility(View.VISIBLE);
+            }
+        });
+
+        mEndTurn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                for(int x = 0; x<mTopHalf.length; x++){
+                    mTopHalf[x].setVisibility(View.VISIBLE);
+                    mBottomHalf[x].setVisibility(View.VISIBLE);
+                }
+                for(int x = 0; x<mTopHalfL.length; x++){
+                    mTopHalfL[x].setVisibility(View.VISIBLE);
+                    mBottomHalfL[x].setVisibility(View.VISIBLE);
+                }
+                for(int x = 0; x<mHand.length; x++){
+                    mHand[x].setVisibility(View.GONE);
+                }
+                mHandL.setVisibility(View.GONE);
+                mStartTurn.setVisibility(View.VISIBLE);
+                mEndTurn.setVisibility(View.GONE);
+                mShowBoard.setVisibility(View.GONE);
+                mHideBoard.setVisibility(View.GONE);
+            }
+        });
+
+        mShowBoard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                for(int x = 0; x<mTopHalf.length; x++){
+                    mTopHalf[x].setVisibility(View.VISIBLE);
+                    mBottomHalf[x].setVisibility(View.VISIBLE);
+                }
+                for(int x = 0; x<mTopHalfL.length; x++){
+                    mTopHalfL[x].setVisibility(View.VISIBLE);
+                    mBottomHalfL[x].setVisibility(View.VISIBLE);
+                }
+                mShowBoard.setVisibility(View.GONE);
+                mHideBoard.setVisibility(View.VISIBLE);
+            }
+        });
+
+        mHideBoard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(turn%2 == 1) {
+                    for(int x = 0; x<mTopHalf.length; x++){
+                        mTopHalf[x].setVisibility(View.GONE);
+                        mBottomHalf[x].setVisibility(View.VISIBLE);
+                    }
+                    for(int x = 0; x<mTopHalfL.length; x++){
+                        mTopHalfL[x].setVisibility(View.GONE);
+                        mBottomHalfL[x].setVisibility(View.VISIBLE);
+                    }
+                }
+                else{
+                    for(int x = 0; x<mTopHalf.length; x++){
+                        mTopHalf[x].setVisibility(View.VISIBLE);
+                        mBottomHalf[x].setVisibility(View.GONE);
+                    }
+                    for(int x = 0; x<mTopHalfL.length; x++){
+                        mTopHalfL[x].setVisibility(View.VISIBLE);
+                        mBottomHalfL[x].setVisibility(View.GONE);
+                    }
+                }
+                mShowBoard.setVisibility(View.VISIBLE);
+                mHideBoard.setVisibility(View.GONE);
             }
         });
 

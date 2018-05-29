@@ -320,7 +320,7 @@
         android:id="@+id/row11">
         <ImageView
             android:id="@+id/imageView36"
-            android:layout_width="50dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             app:srcCompat="@drawable/back" />
@@ -331,40 +331,59 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="START TURN"/>
+    <Button
+        android:id="@+id/end_turn_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="END TURN"
+        android:visibility="gone"/>
+    <Button
+        android:id="@+id/show_board"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SHOW BOARD"
+        android:visibility="gone"/>
+    <Button
+        android:id="@+id/hide_board"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HIDE BOARD"
+        android:visibility="gone"/>
     <LinearLayout
         android:id="@+id/hand_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_weight="0.5"
         android:visibility="gone">
         <ImageView
             android:id="@+id/hand1"
-            android:layout_width="50dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="0.2"
             app:srcCompat="@drawable/back"/>
         <ImageView
             android:id="@+id/hand2"
-            android:layout_width="50dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="0.2"
             app:srcCompat="@drawable/back"/>
         <ImageView
             android:id="@+id/hand3"
-            android:layout_width="50dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="0.2"
             app:srcCompat="@drawable/back"/>
         <ImageView
             android:id="@+id/hand4"
-            android:layout_width="50dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="0.2"
             app:srcCompat="@drawable/back"/>
         <ImageView
             android:id="@+id/hand5"
-            android:layout_width="50dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="0.2"
             app:srcCompat="@drawable/back"/>
     </LinearLayout>
 </LinearLayout>
