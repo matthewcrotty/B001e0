@@ -12,7 +12,6 @@ public class Card{
     private int input1;
     private int input2;
     private boolean inPlay;
-    private Image cardDisplay;
     private String pictureName;
     private int output;
 
@@ -29,7 +28,6 @@ public class Card{
             output = 0;
         }
         if(card == 0) {
-            //cardDisplay =
             pictureName = "not.png";
         }
         else if(card == 1) {
@@ -60,7 +58,6 @@ public class Card{
         inPlay = false;
 
         if(card == 0) {
-            //cardDisplay =
             pictureName = "not.png";
         }
         else if(card == 1) {
@@ -117,14 +114,6 @@ public class Card{
 
     public void setInPlay(boolean inPlay) {
         this.inPlay = inPlay;
-    }
-
-    public Image getCardDisplay() {
-        return cardDisplay;
-    }
-
-    public void setCardDisplay(Image cardDisplay) {
-        this.cardDisplay = cardDisplay;
     }
 
     public int getOutput() {

@@ -3,6 +3,7 @@ package edu.tjhsst.b001e0;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -20,6 +21,9 @@ public class GameBoard{
 
     private GameBoard(){
         gameMatrix = new int[36];
+        for(int x = 0; x < gameMatrix.length; x++) {
+            gameMatrix[x] = -1;
+        }
         for(int x = 0; x < 5; x++) {
             hand1.add(new Card((int)(Math.random() * 7)));
             hand2.add(new Card((int)(Math.random() * 7)));
@@ -298,14 +302,36 @@ public class GameBoard{
     }
 
     private boolean isValidMove(int card, int pos) {
+        Set<Integer> parents = parentLookUp.get(pos);
+        Set<Integer> parentCards = new HashSet<>();
+        Iterator iter = parents.iterator();
+        while(iter.hasNext()) {
+            parentCards.add(gameMatrix[parents.iterator().next()]);
+        }
+        if(card == 2){
+            if(parentCards.size() == 2) {
+                if ((parentCards.contains(3) && parentCards.contains(5)) || (parentCards.contains(5) && parentCards.contains(7)) || (parentCards.contains(7) && parentCards.contains(3))) {
+                    return false;
+                }
+                return true;
+            }
+            else {
+                if(parentCards.contains(3) || parentCards.contains(5) || parentCards.contains(7)) {
+                    return false;
+                }
+                return true;
+            }
 
-        return false;
     }
 
     private void makeMove(int card, int pos) {
         if(isValidMove(card, pos)) {
             gameMatrix[pos] = card;
         }
+    }
+
+    private boolean gameOver() {
+        return gameMatrix[0] != -1 && gameMatrix[35] != -1;
     }
 
     public int[] getGameMatrix() {
