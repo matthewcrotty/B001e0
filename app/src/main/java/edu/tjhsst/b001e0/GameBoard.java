@@ -314,7 +314,8 @@ public class GameBoard{
                     return false;
                 }
                 return true;
-            } else {
+            }
+            else {
                 if (parentCards.contains(3) || parentCards.contains(5) || parentCards.contains(7)) {
                     return false;
                 }
@@ -323,13 +324,13 @@ public class GameBoard{
                         return false;
                     }
                     return true;
-                } else {
+                }
+                else {
                     if (parentCards.contains(8)) {
                         return false;
                     }
                     return true;
                 }
-                return true;
             }
         }
         if(card == 3) {
@@ -338,7 +339,8 @@ public class GameBoard{
                     return true;
                 }
                 return false;
-            } else {
+            }
+            else {
                 if (parentCards.contains(3) || parentCards.contains(5) || parentCards.contains(7)) {
                     return true;
                 }
@@ -347,13 +349,13 @@ public class GameBoard{
                         return true;
                     }
                     return false;
-                } else {
+                }
+                else {
                     if (parentCards.contains(8)) {
                         return true;
                     }
                     return false;
                 }
-                return false;
             }
         }
         if(card == 4) {
@@ -375,7 +377,6 @@ public class GameBoard{
                 else {
                     return true;
                 }
-                return true;
             }
         }
         if(card == 5) {
@@ -397,7 +398,6 @@ public class GameBoard{
                 else {
                     return false;
                 }
-                return false;
             }
         }
         if(card == 6) {
