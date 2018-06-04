@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import edu.tjhsst.b001e0.GameBoard;
 
 public class LocalGame extends AppCompatActivity {
 
@@ -25,7 +26,7 @@ public class LocalGame extends AppCompatActivity {
     private String selectedCard;
     private TextView mTurnMessage;
     private boolean mTurnActive, mPlayedYet;
-    public GameBoard mGame;
+    private GameBoard mGame;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +38,7 @@ public class LocalGame extends AppCompatActivity {
 
         mTurnActive = false;
         mPlayedYet = false;
+        selectedCard = "NONE";
 
         mGame = new GameBoard();
         mStartTurn = findViewById(R.id.start_turn_button);
@@ -113,9 +115,11 @@ public class LocalGame extends AppCompatActivity {
             if(Math.random() > 0.5)
                 rotateM(mDefaults, x, R.drawable.initial_binary);
             final ImageView temp3 = mDefaults[x];
+            final int pos1 = x;
             mDefaults[x].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    mTurnMessage.setText(""+(pos1+15));
                     if(selectedCard.equals("not")) {
                         rotate(temp3, R.drawable.initial_binary);
                         mPlayedYet = true;
@@ -128,9 +132,11 @@ public class LocalGame extends AppCompatActivity {
         for(int x = 0; x<mTopHalf.length; x++){
             rotateM(mTopHalf, x, R.drawable.back);
             final ImageView temp = mTopHalf[x];
+            final int pos = x;
             mTopHalf[x].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    mTurnMessage.setText(""+pos);
                     if(mTurnActive && !mPlayedYet) {
                         if(!selectedCard.equals("NONE")) {
                             setImageC(temp, selectedCard);
@@ -145,13 +151,17 @@ public class LocalGame extends AppCompatActivity {
         //BOTTOM OF BOARD LISTENERS
         for(int x = 0; x<mBottomHalf.length; x++){
             final ImageView temp2 = mBottomHalf[x];
+            final int position = x;
             mBottomHalf[x].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    mTurnMessage.setText(""+(position+20));
                     if(mTurnActive && !mPlayedYet) {
                         if(!selectedCard.equals("NONE")) {
-                            setImageC(temp2, selectedCard);
-                            mPlayedYet = true;
+                            if(validateMove(position+20, selectedCard)) {
+                                setImageC(temp2, selectedCard);
+                                mPlayedYet = true;
+                            }
                         }
                     }
                 }
@@ -307,8 +317,18 @@ public class LocalGame extends AppCompatActivity {
                 matrix, true);
         arr[x].setImageBitmap(rotated);
     }
-    public boolean validateMove(){
-        return true;
+    public boolean validateMove(int pos, String card){
+        int cardNo = 0;
+        switch(card){
+            case("and0"):{cardNo = 2; break;}
+            case("and1"):{cardNo = 3; break;}
+            case("or0"):{cardNo = 4; break;}
+            case("or1"):{cardNo = 5; break;}
+            case("xor0"):{cardNo = 6; break;}
+            case("xor1"):{cardNo = 7; break;}
+            case("not"):{cardNo = 0; break;}
+        }
+        return mGame.isValidMove(cardNo, pos);
     }
 
     public void setImageC(ImageView card, String name){
