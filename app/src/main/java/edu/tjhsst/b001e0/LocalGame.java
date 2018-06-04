@@ -22,9 +22,10 @@ public class LocalGame extends AppCompatActivity {
     private LinearLayout[] mDefaultsL, mTopHalfL, mBottomHalfL;
     private LinearLayout mHandL;
     private Button mStartTurn, mEndTurn, mShowBoard, mHideBoard;
-    private String currentPlayer;
+    private String currentPlayer, selectedCard;
     private TextView mTurnMessage;
     private String[] mCards;
+    private boolean mTurnActive, mPlayedYet;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +35,8 @@ public class LocalGame extends AppCompatActivity {
         final String player1 = mIntent.getStringExtra("P1");
         final String player2 = mIntent.getStringExtra("P2");
         currentPlayer = player1;
+        mTurnActive = false;
+        mPlayedYet = false;
 
         mStartTurn = findViewById(R.id.start_turn_button);
         mEndTurn = findViewById(R.id.end_turn_button);
@@ -105,6 +108,7 @@ public class LocalGame extends AppCompatActivity {
 
         mHandL = findViewById(R.id.hand_layout);
 
+        //INITIAL CARD LISTENERS
         for(int x = 0; x<mDefaults.length; x++){
             if(Math.random() > 0.5)
                 rotateM(mDefaults, x, R.drawable.initial_binary);
@@ -112,11 +116,15 @@ public class LocalGame extends AppCompatActivity {
             mDefaults[x].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    rotate(temp3, R.drawable.initial_binary);
+                    if(selectedCard == "not") {
+                        rotate(temp3, R.drawable.initial_binary);
+                        mPlayedYet = true;
+                    }
                 }
             });
         }
 
+        //TOP OF BOARD LISTENERS
         for(int x = 0; x<mTopHalf.length; x++){
             rotateM(mTopHalf, x, R.drawable.back);
             final ImageView temp = mTopHalf[x];
@@ -124,19 +132,26 @@ public class LocalGame extends AppCompatActivity {
 
                 @Override
                 public void onClick(View view) {
-                    temp.setImageResource(R.drawable.and0);
-                    rotate(temp, R.drawable.and0);
+                    if(mTurnActive && !mPlayedYet) {
+                        temp.setImageResource(R.drawable.and0);
+                        rotate(temp, R.drawable.and0);
+                        mPlayedYet = true;
+                    }
                 }
             });
 
         }
 
+        //BOTTOM OF BOARD LISTENERS
         for(int x = 0; x<mBottomHalf.length; x++){
             final ImageView temp2 = mBottomHalf[x];
             mBottomHalf[x].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    temp2.setImageResource(R.drawable.and0);
+                    if(mTurnActive && !mPlayedYet) {
+                        temp2.setImageResource(R.drawable.and0);
+                        mPlayedYet = true;
+                    }
                 }
             });
         }
@@ -144,6 +159,8 @@ public class LocalGame extends AppCompatActivity {
         mStartTurn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mPlayedYet = false;
+                mTurnActive = true;
                 turn+=1;
                 if(turn%2 == 1) {
                     mTurnMessage.setText(player2 + "'s Turn");
@@ -184,6 +201,8 @@ public class LocalGame extends AppCompatActivity {
         mEndTurn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mTurnActive = false;
+                mPlayedYet = false;
                 for(int x = 0; x<mTopHalf.length; x++){
                     mTopHalf[x].setVisibility(View.VISIBLE);
                     mBottomHalf[x].setVisibility(View.VISIBLE);

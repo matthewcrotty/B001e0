@@ -305,23 +305,24 @@ public class GameBoard{
         Set<Integer> parents = parentLookUp.get(pos);
         Set<Integer> parentCards = new HashSet<>();
         Iterator iter = parents.iterator();
-        while(iter.hasNext()) {
+        while (iter.hasNext()) {
             parentCards.add(gameMatrix[parents.iterator().next()]);
         }
-        if(card == 2){
-            if(parentCards.size() == 2) {
+        if (card == 2) {
+            if (parentCards.size() == 2) {
                 if ((parentCards.contains(3) && parentCards.contains(5)) || (parentCards.contains(5) && parentCards.contains(7)) || (parentCards.contains(7) && parentCards.contains(3))) {
                     return false;
                 }
                 return true;
-            }
-            else {
-                if(parentCards.contains(3) || parentCards.contains(5) || parentCards.contains(7)) {
+            } else {
+                if (parentCards.contains(3) || parentCards.contains(5) || parentCards.contains(7)) {
                     return false;
                 }
                 return true;
             }
 
+        }
+        return true;
     }
 
     private void makeMove(int card, int pos) {
