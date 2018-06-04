@@ -19,7 +19,7 @@ public class GameBoard{
     private ArrayList<Card> hand2;
     private boolean hand1Turn;
 
-    private GameBoard(){
+    public GameBoard(){
         gameMatrix = new int[36];
         for(int x = 0; x < gameMatrix.length; x++) {
             gameMatrix[x] = -1;
@@ -295,7 +295,40 @@ public class GameBoard{
     }
 
     private void playNot(int pos) {
+        if(gameMatrix[pos] == 1) {
+            gameMatrix[pos] = 8;
+        }
+        else {
+            gameMatrix[pos] = 1;
+        }
+        Set<Integer> children = childLookUp.get(pos);
+        for(Integer index: children) {
+            validityHelper(index);
+        }
+    }
 
+    private void validityHelper(int index) {
+        boolean works = true;
+        Set<Integer> parents = parentLookUp.get(index);
+        for(Integer parent: parents) {
+            if(gameMatrix[parent] == -1) {
+                works = false;
+            }
+        }
+        if(works) {
+            if (!isValidMove(gameMatrix[index], index)) {
+                gameMatrix[index] = -1;
+            }
+        }
+        else {
+            gameMatrix[index] = -1;
+        }
+        if(childLookUp.containsKey(index)) {
+            Set<Integer> children = childLookUp.get(index);
+            for(Integer child : children) {
+                validityHelper(child);
+            }
+        }
     }
 
     private void switchTurns() {
@@ -312,9 +345,8 @@ public class GameBoard{
     private boolean isValidMove(int card, int pos) {
         Set<Integer> parents = parentLookUp.get(pos);
         Set<Integer> parentCards = new HashSet<>();
-        Iterator iter = parents.iterator();
-        while(iter.hasNext()) {
-            parentCards.add(gameMatrix[parents.iterator().next()]);
+        for(Integer parent : parents) {
+            parentCards.add(gameMatrix[parent]);
         }
         if(card == 2) {
             if (parentCards.size() == 2) {
