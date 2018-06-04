@@ -308,20 +308,159 @@ public class GameBoard{
         while(iter.hasNext()) {
             parentCards.add(gameMatrix[parents.iterator().next()]);
         }
-        if(card == 2){
-            if(parentCards.size() == 2) {
-                if ((parentCards.contains(3) && parentCards.contains(5)) || (parentCards.contains(5) && parentCards.contains(7)) || (parentCards.contains(7) && parentCards.contains(3))) {
+        if(card == 2) {
+            if (parentCards.size() == 2) {
+                if ((parentCards.contains(3) && parentCards.contains(5)) || (parentCards.contains(5) && parentCards.contains(7)) || (parentCards.contains(7) && parentCards.contains(3)) || (parentCards.contains(8) && parentCards.contains(1))) {
                     return false;
+                }
+                return true;
+            } else {
+                if (parentCards.contains(3) || parentCards.contains(5) || parentCards.contains(7)) {
+                    return false;
+                }
+                if (pos < 18) {
+                    if (parentCards.contains(1)) {
+                        return false;
+                    }
+                    return true;
+                } else {
+                    if (parentCards.contains(8)) {
+                        return false;
+                    }
+                    return true;
+                }
+                return true;
+            }
+        }
+        if(card == 3) {
+            if (parentCards.size() == 2) {
+                if ((parentCards.contains(3) && parentCards.contains(5)) || (parentCards.contains(5) && parentCards.contains(7)) || (parentCards.contains(7) && parentCards.contains(3)) || (parentCards.contains(8) && parentCards.contains(1))) {
+                    return true;
+                }
+                return false;
+            } else {
+                if (parentCards.contains(3) || parentCards.contains(5) || parentCards.contains(7)) {
+                    return true;
+                }
+                if (pos < 18) {
+                    if (parentCards.contains(1)) {
+                        return true;
+                    }
+                    return false;
+                } else {
+                    if (parentCards.contains(8)) {
+                        return true;
+                    }
+                    return false;
+                }
+                return false;
+            }
+        }
+        if(card == 4) {
+            if(parentCards.contains(3) || parentCards.contains(5) || parentCards.contains(7)) {
+                return false;
+            }
+            if(pos < 18) {
+                if(parentCards.contains(1)) {
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
+            else {
+                if(parentCards.contains(8)) {
+                    return false;
+                }
+                else {
+                    return true;
+                }
+                return true;
+            }
+        }
+        if(card == 5) {
+            if(parentCards.contains(3) || parentCards.contains(5) || parentCards.contains(7)) {
+                return true;
+            }
+            if(pos < 18) {
+                if(parentCards.contains(1)) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            else {
+                if(parentCards.contains(8)) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+                return false;
+            }
+        }
+        if(card == 6) {
+            if(parentCards.size() == 2) {
+                if((parentCards.contains(3) && (parentCards.contains(5) || parentCards.contains(7))) || (parentCards.contains(5) && (parentCards.contains(7) || parentCards.contains(3))) || (parentCards.contains(7) && (parentCards.contains(3) || parentCards.contains(5)))) {
+                    return true;
+                }
+                if((parentCards.contains(2) && (parentCards.contains(4) || parentCards.contains(6))) || (parentCards.contains(4) && (parentCards.contains(6) || parentCards.contains(2))) || (parentCards.contains(6) && (parentCards.contains(2) || parentCards.contains(4)))) {
+                    return true;
+                }
+                if(pos < 18) {
+                    if(parentCards.contains(1) && (parentCards.contains(3) || parentCards.contains(5) || parentCards.contains(7))) {
+                        return true;
+                    }
+                    if(parentCards.contains(8) && (parentCards.contains(2) || parentCards.contains(4) || parentCards.contains(6))) {
+                        return true;
+                    }
+                }
+                else {
+                    if(parentCards.contains(1) && (parentCards.contains(3) || parentCards.contains(5) || parentCards.contains(7))) {
+                        return true;
+                    }
+                    if(parentCards.contains(8) && (parentCards.contains(2) || parentCards.contains(4) || parentCards.contains(6))) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+        if(card == 7) {
+            if(parentCards.size() == 2) {
+                if((parentCards.contains(3) && (parentCards.contains(5) || parentCards.contains(7))) || (parentCards.contains(5) && (parentCards.contains(7) || parentCards.contains(3))) || (parentCards.contains(7) && (parentCards.contains(3) || parentCards.contains(5)))) {
+                    return false;
+                }
+                if((parentCards.contains(2) && (parentCards.contains(4) || parentCards.contains(6))) || (parentCards.contains(4) && (parentCards.contains(6) || parentCards.contains(2))) || (parentCards.contains(6) && (parentCards.contains(2) || parentCards.contains(4)))) {
+                    return false;
+                }
+                if(pos < 18) {
+                    if(parentCards.contains(1) && (parentCards.contains(3) || parentCards.contains(5) || parentCards.contains(7))) {
+                        return false;
+                    }
+                    if(parentCards.contains(8) && (parentCards.contains(2) || parentCards.contains(4) || parentCards.contains(6))) {
+                        return false;
+                    }
+                }
+                else {
+                    if(parentCards.contains(1) && (parentCards.contains(3) || parentCards.contains(5) || parentCards.contains(7))) {
+                        return false;
+                    }
+                    if(parentCards.contains(8) && (parentCards.contains(2) || parentCards.contains(4) || parentCards.contains(6))) {
+                        return false;
+                    }
                 }
                 return true;
             }
             else {
-                if(parentCards.contains(3) || parentCards.contains(5) || parentCards.contains(7)) {
-                    return false;
-                }
-                return true;
+                return false;
             }
-
+        }
+        return false;
     }
 
     private void makeMove(int card, int pos) {
