@@ -22,10 +22,10 @@ public class LocalGame extends AppCompatActivity {
     private LinearLayout[] mDefaultsL, mTopHalfL, mBottomHalfL;
     private LinearLayout mHandL;
     private Button mStartTurn, mEndTurn, mShowBoard, mHideBoard;
-    private String currentPlayer, selectedCard;
+    private String selectedCard;
     private TextView mTurnMessage;
-    private String[] mCards;
     private boolean mTurnActive, mPlayedYet;
+    public GameBoard mGame;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,17 +34,17 @@ public class LocalGame extends AppCompatActivity {
         Intent mIntent = getIntent();
         final String player1 = mIntent.getStringExtra("P1");
         final String player2 = mIntent.getStringExtra("P2");
-        currentPlayer = player1;
+
         mTurnActive = false;
         mPlayedYet = false;
 
+        mGame = new GameBoard();
         mStartTurn = findViewById(R.id.start_turn_button);
         mEndTurn = findViewById(R.id.end_turn_button);
         mShowBoard = findViewById(R.id.show_board);
         mHideBoard = findViewById(R.id.hide_board);
         mTurnMessage = findViewById(R.id.turn_message);
         //mTurnMessage.setText(currentPlayer+"'s Turn");
-        mCards = new String[]{"and0", "and1", "or0", "or1", "xor0", "xor1", "not"};
 
         mDefaults = new ImageView[]{findViewById(R.id.imageView16),
                 findViewById(R.id.imageView17),
@@ -116,7 +116,7 @@ public class LocalGame extends AppCompatActivity {
             mDefaults[x].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(selectedCard == "not") {
+                    if(selectedCard.equals("not")) {
                         rotate(temp3, R.drawable.initial_binary);
                         mPlayedYet = true;
                     }
@@ -129,17 +129,17 @@ public class LocalGame extends AppCompatActivity {
             rotateM(mTopHalf, x, R.drawable.back);
             final ImageView temp = mTopHalf[x];
             mTopHalf[x].setOnClickListener(new View.OnClickListener() {
-
                 @Override
                 public void onClick(View view) {
                     if(mTurnActive && !mPlayedYet) {
-                        temp.setImageResource(R.drawable.and0);
-                        rotate(temp, R.drawable.and0);
-                        mPlayedYet = true;
+                        if(!selectedCard.equals("NONE")) {
+                            setImageC(temp, selectedCard);
+                            rotate(temp, getCardInt(selectedCard));
+                            mPlayedYet = true;
+                        }
                     }
                 }
             });
-
         }
 
         //BOTTOM OF BOARD LISTENERS
@@ -149,18 +149,36 @@ public class LocalGame extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     if(mTurnActive && !mPlayedYet) {
-                        temp2.setImageResource(R.drawable.and0);
-                        mPlayedYet = true;
+                        if(!selectedCard.equals("NONE")) {
+                            setImageC(temp2, selectedCard);
+                            mPlayedYet = true;
+                        }
                     }
                 }
             });
         }
+        //HAND LISTENERS
+        for(int x = 0; x<mHand.length; x++){
+            final ImageView temp3 = mHand[x];
+            final int handpos = x;
+            mHand[x].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(turn%2 == 1)
+                        selectedCard = mGame.getHand2().get(handpos).getPictureName();
+                    else
+                        selectedCard = mGame.getHand1().get(handpos).getPictureName();
+                }
+            });
+        }
+
 
         mStartTurn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mPlayedYet = false;
                 mTurnActive = true;
+                selectedCard = "NONE";
                 turn+=1;
                 if(turn%2 == 1) {
                     mTurnMessage.setText(player2 + "'s Turn");
@@ -176,6 +194,9 @@ public class LocalGame extends AppCompatActivity {
                         mHand[x].setVisibility(View.VISIBLE);
                     }
                     mHandL.setVisibility(View.VISIBLE);
+                    for(int x=0; x<mHand.length; x++){
+                        setImageC(mHand[x], mGame.getHand2().get(x).getPictureName());
+                    }
                 }
                 else{
                     mTurnMessage.setText(player1 +"'s Turn");
@@ -191,6 +212,9 @@ public class LocalGame extends AppCompatActivity {
                         mHand[x].setVisibility(View.VISIBLE);
                     }
                     mHandL.setVisibility(View.VISIBLE);
+                    for(int x=0; x<mHand.length; x++){
+                        setImageC(mHand[x], mGame.getHand1().get(x).getPictureName());
+                    }
                 }
                 mStartTurn.setVisibility(View.GONE);
                 mEndTurn.setVisibility(View.VISIBLE);
@@ -287,7 +311,28 @@ public class LocalGame extends AppCompatActivity {
         return true;
     }
 
-    public void setImage(){
+    public void setImageC(ImageView card, String name){
+        switch(name) {
+            case ("and0"):{card.setImageResource(R.drawable.and0);break;}
+            case ("and1"):{ card.setImageResource(R.drawable.and1);break;}
+            case ("or0"):{ card.setImageResource(R.drawable.or0); break;}
+            case ("or1"):{ card.setImageResource(R.drawable.or1);break;}
+            case ("xor0"):{ card.setImageResource(R.drawable.xor0);break;}
+            case ("xor1"):{ card.setImageResource(R.drawable.xor1);break;}
+            case ("not"):{ card.setImageResource(R.drawable.not);break;}
+        }
 
+    }
+    public int getCardInt(String s){
+        switch(s){
+            case ("and0"):{return(R.drawable.and0);}
+            case ("and1"):{return(R.drawable.and1);}
+            case ("or0"):{ return(R.drawable.or0);}
+            case ("or1"):{ return(R.drawable.or1);}
+            case ("xor0"):{ return(R.drawable.xor0);}
+            case ("xor1"):{ return(R.drawable.xor1);}
+            case ("not"):{ return(R.drawable.not);}
+        }
+        return R.drawable.and0;
     }
 }

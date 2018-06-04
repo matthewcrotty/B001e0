@@ -19,7 +19,9 @@ public class GameBoard{
     private ArrayList<Card> hand2;
     private boolean hand1Turn;
 
-    private GameBoard(){
+    public GameBoard(){
+        hand1 = new ArrayList<>();
+        hand2 = new ArrayList<>();
         gameMatrix = new int[36];
         for(int x = 0; x < gameMatrix.length; x++) {
             gameMatrix[x] = -1;
@@ -28,7 +30,7 @@ public class GameBoard{
             hand1 = drawCard(hand1);
             hand2 = drawCard(hand2);
         }
-        hand1 = drawCard((hand1));
+        //hand1 = drawCard((hand1));
         hand1Turn = true;
         createLookUp();
     }

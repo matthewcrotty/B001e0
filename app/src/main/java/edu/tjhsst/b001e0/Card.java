@@ -28,28 +28,28 @@ public class Card{
             output = 0;
         }
         if(card == 0) {
-            pictureName = "not.png";
+            pictureName = "not";
         }
         else if(card == 1) {
             pictureName = "initial_binary.png";
         }
         else if(card == 2) {
-            pictureName = "and0.png";
+            pictureName = "and0";
         }
         else if(card == 3) {
-            pictureName = "and1.png";
+            pictureName = "and1";
         }
         else if(card == 4) {
-            pictureName = "or0.png";
+            pictureName = "or0";
         }
         else if(card == 5) {
-            pictureName = "or1.png";
+            pictureName = "or1";
         }
         else if(card == 6) {
-            pictureName = "xor0.png";
+            pictureName = "xor0";
         }
         else if(card == 7) {
-            pictureName = "xor1.png";
+            pictureName = "xor1";
         }
     }
 
@@ -58,28 +58,28 @@ public class Card{
         inPlay = false;
 
         if(card == 0) {
-            pictureName = "not.png";
+            pictureName = "not";
         }
         else if(card == 1) {
             pictureName = "initial_binary.png";
         }
         else if(card == 2) {
-            pictureName = "and0.png";
+            pictureName = "and0";
         }
         else if(card == 3) {
-            pictureName = "and1.png";
+            pictureName = "and1";
         }
         else if(card == 4) {
-            pictureName = "or0.png";
+            pictureName = "or0";
         }
         else if(card == 5) {
-            pictureName = "or1.png";
+            pictureName = "or1";
         }
         else if(card == 6) {
-            pictureName = "xor0.png";
+            pictureName = "xor0";
         }
         else if(card == 7) {
-            pictureName = "xor1.png";
+            pictureName = "xor1";
         }
 
     }
