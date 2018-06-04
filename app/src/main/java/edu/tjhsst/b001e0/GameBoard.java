@@ -25,8 +25,8 @@ public class GameBoard{
             gameMatrix[x] = -1;
         }
         for(int x = 0; x < 5; x++) {
-            hand1.add(new Card((int)(Math.random() * 7)));
-            hand2.add(new Card((int)(Math.random() * 7)));
+            hand1 = drawCard(hand1);
+            hand2 = drawCard(hand2);
         }
         hand1 = drawCard((hand1));
         hand1Turn = true;
@@ -286,7 +286,11 @@ public class GameBoard{
     }
 
     private ArrayList<Card> drawCard(ArrayList<Card> hand) {
-        hand.add(new Card((int)(Math.random() * 7)));
+        int card = (int)(Math.random() * 7 + 1);
+        if(card == 1) {
+            card = 0;
+        }
+        hand.add(new Card(card));
         return hand;
     }
 
