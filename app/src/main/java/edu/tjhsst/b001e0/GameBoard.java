@@ -12,7 +12,7 @@ import java.util.Set;
  */
 
 public class GameBoard{
-    private int[] gameMatrix;
+    public int[] gameMatrix;
     private Map<Integer, Set<Integer>> parentLookUp;
     private Map<Integer, Set<Integer>> childLookUp;
     private ArrayList<Card> hand1;
@@ -345,6 +345,18 @@ public class GameBoard{
         Set<Integer> parentCards = new HashSet<>();
         for(Integer parent : parents){
             parentCards.add(gameMatrix[parent]);
+        }
+        if(card == 0) {
+            if(pos == 15 || pos == 16 || pos == 17 || pos == 18 || pos == 19 || pos == 20) {
+                return true;
+            }
+            return false;
+        }
+        for(int x : parents) {
+            if(gameMatrix[x] == -1) {
+                return false;
+            }
+            return true;
         }
         if(card == 2) {
             if (parentCards.size() == 2) {

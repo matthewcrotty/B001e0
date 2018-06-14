@@ -24,6 +24,7 @@ public class LocalGame extends AppCompatActivity {
     private LinearLayout mHandL;
     private Button mStartTurn, mEndTurn, mShowBoard, mHideBoard;
     private String selectedCard;
+    private int selectedInt;
     private TextView mTurnMessage;
     private boolean mTurnActive, mPlayedYet;
     private GameBoard mGame;
@@ -112,16 +113,27 @@ public class LocalGame extends AppCompatActivity {
 
         //INITIAL CARD LISTENERS
         for(int x = 0; x<mDefaults.length; x++){
-            if(Math.random() > 0.5)
+            if(Math.random() > 0.5) {
+                mGame.gameMatrix[x + 15] = 8;
                 rotateM(mDefaults, x, R.drawable.initial_binary);
+            }
+            else {
+                mGame.gameMatrix[x + 15] = 1;
+            }
             final ImageView temp3 = mDefaults[x];
             final int pos1 = x;
             mDefaults[x].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    mTurnMessage.setText(""+(pos1+15));
+                    //mTurnMessage.setText(""+(mGame.gameMatrix[pos1 + 15]));
                     if(selectedCard.equals("not")) {
                         rotate(temp3, R.drawable.initial_binary);
+                        if(mGame.gameMatrix[pos1] == 1) {
+                            mGame.gameMatrix[pos1] = 8;
+                        }
+                        else {
+                            mGame.gameMatrix[pos1] = 1;
+                        }
                         mPlayedYet = true;
                     }
                 }
@@ -136,12 +148,15 @@ public class LocalGame extends AppCompatActivity {
             mTopHalf[x].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    mTurnMessage.setText(""+pos);
+                    //mTurnMessage.setText(""+mGame.gameMatrix[pos]);
                     if(mTurnActive && !mPlayedYet) {
                         if(!selectedCard.equals("NONE")) {
-                            setImageC(temp, selectedCard);
-                            rotate(temp, getCardInt(selectedCard));
-                            mPlayedYet = true;
+                            if(validateMove(pos, selectedCard)) {
+                                setImageC(temp, selectedCard);
+                                mGame.gameMatrix[pos] = selectedInt;
+                                rotate(temp, getCardInt(selectedCard));
+                                mPlayedYet = true;
+                            }
                         }
                     }
                 }
@@ -155,11 +170,12 @@ public class LocalGame extends AppCompatActivity {
             mBottomHalf[x].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    mTurnMessage.setText(""+(position+20));
+                    //mTurnMessage.setText(""+(mGame.gameMatrix[position+20]));
                     if(mTurnActive && !mPlayedYet) {
                         if(!selectedCard.equals("NONE")) {
                             if(validateMove(position+20, selectedCard)) {
                                 setImageC(temp2, selectedCard);
+                                mGame.gameMatrix[position+20] = selectedInt;
                                 mPlayedYet = true;
                             }
                         }
@@ -174,10 +190,14 @@ public class LocalGame extends AppCompatActivity {
             mHand[x].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(turn%2 == 1)
+                    if(turn%2 == 1) {
                         selectedCard = mGame.getHand2().get(handpos).getPictureName();
-                    else
+                        selectedInt = mGame.getHand2().get(handpos).getType();
+                    }
+                    else {
                         selectedCard = mGame.getHand1().get(handpos).getPictureName();
+                        selectedInt = mGame.getHand1().get(handpos).getType();
+                    }
                 }
             });
         }
