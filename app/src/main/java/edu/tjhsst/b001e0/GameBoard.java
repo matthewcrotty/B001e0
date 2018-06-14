@@ -340,6 +340,12 @@ public class GameBoard{
         }
     }
 
+    public ArrayList<Card> removeCard(ArrayList<Card> hand, int pos) {
+        hand.remove(pos);
+        hand = drawCard(hand);
+        return hand;
+    }
+
     public boolean isValidMove(int card, int pos) {
         Set<Integer> parents = parentLookUp.get(pos);
         Set<Integer> parentCards = new HashSet<>();
